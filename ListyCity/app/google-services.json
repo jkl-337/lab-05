@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "900467438066",
+    "project_id": "fir-tutorial-keegan",
+    "storage_bucket": "fir-tutorial-keegan.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900467438066:android:50ab3a32127213dbd0fb6b",
+        "android_client_info": {
+          "package_name": "com.example.listycity"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnZ5Ev8ZUnI7JcpCvhf0rS2qYjT5E7GHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

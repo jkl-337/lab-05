@@ -21,6 +21,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -32,6 +33,7 @@ fun CityListScreen(
     cities: List<City>,
     onAddCity: (City) -> Unit,
     onUpdateCity: (City, City) -> Unit,
+    onDelCity: (City) -> Unit,
     modifier: Modifier = Modifier
 ) {
     var newCityName by remember { mutableStateOf("") }
@@ -40,6 +42,8 @@ fun CityListScreen(
     var selectedCity by remember { mutableStateOf<City?>(null) }
     var editedCityName by remember { mutableStateOf("") }
     var editedProvinceName by remember { mutableStateOf("") }
+
+
 
     Column(modifier = modifier.fillMaxSize()) {
         Row(
@@ -174,6 +178,27 @@ fun CityListScreen(
             }
         }
     }
+    Column(
+        modifier = modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.End,
+        verticalArrangement = Arrangement.Bottom
+    ) {
+        Button(
+            modifier = Modifier.padding(vertical = 12.dp),
+            onClick = {
+                val cityToDelete = selectedCity
+                if (cityToDelete != null) {
+                    onDelCity(cityToDelete)
+
+                    selectedCity = null
+                    editedCityName = ""
+                    editedProvinceName = ""
+                }
+
+            }
+        ) {Text("Delete")}
+
+    }
 }
 
 
@@ -213,7 +238,8 @@ fun CityListScreenPreview() {
                 City("Calgary", "AB")
             ),
             onAddCity = {},
-            onUpdateCity = { _, _ -> }
+            onUpdateCity = { _, _ -> },
+            onDelCity = {}
         )
     }
 }
